@@ -1,0 +1,33 @@
+﻿@model List<Labb3Mvc2.VIewModels.CarViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cars</h1>
+
+<a asp-controller="Car" asp-action="New">New Car</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Model</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>
+                    <p>@car.Manufacturer</p>
+                </td>
+                <td>
+                    <a asp-controller="Car" asp-action="Edit" asp-route-id="@car.ID">@car.Model</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
